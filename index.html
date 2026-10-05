@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Knowledge Transfer System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            AI Knowledge Hub
+        </div>
+
+        <div class="nav-links">
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+        </div>
+
+    </nav>
+
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                AI Knowledge Transfer System
+            </h1>
+
+            <p>
+                Store, share and access company knowledge
+                using an intelligent AI-powered platform.
+            </p>
+
+            <a href="{{ url_for('login') }}" class="btn">
+                Get Started
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <section class="features">
+
+        <div class="feature-card">
+
+            <h2>📚 Knowledge Sharing</h2>
+
+            <p>
+                Employees can store important company
+                information in one centralized system.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <h2>🤖 AI Assistant</h2>
+
+            <p>
+                Ask questions and get answers from the
+                available company knowledge.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <h2>🔍 Smart Search</h2>
+
+            <p>
+                Quickly search company procedures,
+                documentation and FAQs.
+            </p>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>

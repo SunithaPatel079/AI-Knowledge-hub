@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Knowledge</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            AI Knowledge Hub
+        </div>
+
+        <a href="{{ url_for('dashboard') }}">
+            Dashboard
+        </a>
+
+    </nav>
+
+
+    <div class="form-container">
+
+        <div class="form-card">
+
+            <h1>
+                Add Company Knowledge
+            </h1>
+
+            <p>
+                Share useful information with other employees.
+            </p>
+
+
+            <form method="POST">
+
+                <label>
+                    Knowledge Title
+                </label>
+
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="Example: Employee Leave Policy"
+                    required
+                >
+
+
+                <label>
+                    Category
+                </label>
+
+                <select name="category" required>
+
+                    <option value="">
+                        Select category
+                    </option>
+
+                    <option value="HR">
+                        HR
+                    </option>
+
+                    <option value="Technical">
+                        Technical
+                    </option>
+
+                    <option value="Project">
+                        Project
+                    </option>
+
+                    <option value="Company Policy">
+                        Company Policy
+                    </option>
+
+                    <option value="Training">
+                        Training
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+
+                <label>
+                    Knowledge Content
+                </label>
+
+                <textarea
+                    name="content"
+                    rows="10"
+                    placeholder="Enter the company knowledge..."
+                    required
+                ></textarea>
+
+
+                <button type="submit">
+                    Save Knowledge
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Ask AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            AI Knowledge Hub
+        </div>
+
+        <a href="{{ url_for('dashboard') }}">
+            Dashboard
+        </a>
+
+    </nav>
+
+
+    <main class="ai-container">
+
+        <div class="ai-card">
+
+            <div class="ai-title">
+
+                <h1>
+                    🤖 AI Knowledge Assistant
+                </h1>
+
+                <p>
+                    Ask questions about company knowledge.
+                </p>
+
+            </div>
+
+
+            <form method="POST">
+
+                <textarea
+                    name="question"
+                    rows="5"
+                    placeholder="Example: What is the company's leave policy?"
+                    required
+                ></textarea>
+
+
+                <button type="submit">
+                    Ask AI
+                </button>
+
+            </form>
+
+
+            {% if answer %}
+
+                <div class="answer">
+
+                    <h2>
+                        AI Response
+                    </h2>
+
+                    <p>
+                        {{ answer }}
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

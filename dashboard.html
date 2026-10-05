@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            AI Knowledge Hub
+        </div>
+
+        <div class="nav-links">
+
+            <span>
+                Welcome, {{ user_name }}
+            </span>
+
+            <a href="{{ url_for('logout') }}">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="dashboard">
+
+        <div class="dashboard-header">
+
+            <div>
+
+                <h1>
+                    Knowledge Dashboard
+                </h1>
+
+                <p>
+                    Access and share company knowledge.
+                </p>
+
+            </div>
+
+            <div>
+
+                <a
+                    href="{{ url_for('add_knowledge_page') }}"
+                    class="btn"
+                >
+                    + Add Knowledge
+                </a>
+
+                <a
+                    href="{{ url_for('ask_ai_page') }}"
+                    class="btn ai-btn"
+                >
+                    🤖 Ask AI
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <form
+            action="{{ url_for('search') }}"
+            method="GET"
+            class="search-box"
+        >
+
+            <input
+                type="text"
+                name="keyword"
+                placeholder="Search company knowledge..."
+                value="{{ keyword if keyword else '' }}"
+            >
+
+            <button type="submit">
+                Search
+            </button>
+
+        </form>
+
+
+        <div class="knowledge-grid">
+
+            {% for item in knowledge %}
+
+                <div class="knowledge-card">
+
+                    <span class="category">
+                        {{ item["category"] }}
+                    </span>
+
+                    <h2>
+                        {{ item["title"] }}
+                    </h2>
+
+                    <p>
+                        {{ item["content"] }}
+                    </p>
+
+                    <small>
+                        Added by {{ item["author"] }}
+                    </small>
+
+                </div>
+
+            {% else %}
+
+                <div class="empty">
+
+                    <h2>
+                        No knowledge found
+                    </h2>
+
+                    <p>
+                        Add some company knowledge to get started.
+                    </p>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

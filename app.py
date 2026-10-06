@@ -185,3 +185,5 @@ def search():
         user_name=session["user_name"],
         keyword=keyword
     )
+if __name__ == "__main__":
+    app.run(debug=True)

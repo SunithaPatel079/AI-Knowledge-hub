@@ -1,46 +1,36 @@
-import os
-
-from dotenv import load_dotenv
+import streamlit as st
 from google import genai
 
-load_dotenv()
 
-API_KEY = os.getenv("GEMINI_API_KEY")
+API_KEY = st.secrets["GEMINI_API_KEY"]
 
-client = genai.Client(api_key=API_KEY)
+client = genai.Client(
+    api_key=API_KEY
+)
 
 
-def ask_ai(question, knowledge_text):
+def ask_ai(question, knowledge):
+
     prompt = f"""
-You are an AI Knowledge Transfer Assistant for a company.
+You are an AI assistant for a company.
 
-Answer the employee's question using the company knowledge
-provided below.
+Use the following company knowledge
+to answer the question.
 
-If the answer is not available in the company knowledge,
-clearly say that the information is not available.
+COMPANY KNOWLEDGE:
 
-Use simple and professional language.
+{knowledge}
 
-Company Knowledge:
-{knowledge_text}
+QUESTION:
 
-Employee Question:
 {question}
+
+Give a clear and simple answer.
 """
 
-    try:
-        response = client.models.generate_content(
-            model="gemini-3.8-flash",
-            contents=prompt
-        )
+    response = client.models.generate_content(
+        model="gemini-3.5-flash-lite",
+        contents=prompt
+    )
 
-        return response.text
-
-    except Exception as error:
-        print("Gemini Error:", error)
-
-        return (
-            "Sorry, the AI service is temporarily unavailable. "
-            "Please try again in a few moments."
-        )
+    return response.text

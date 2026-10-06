@@ -185,10 +185,3 @@ def search():
         user_name=session["user_name"],
         keyword=keyword
     )
-
-if __name__ == "__main__":
-    app.run(
-        debug=True,
-        host="127.0.0.1",
-        port=5000
-    )
